@@ -20,5 +20,10 @@
   <%= @restaurant.cuisine %>
 </p>
 
+<p>
+  <strong>Photo of the restaurant:</strong>
+  <%= image_tag(@restaurant.image_url.to_s) %>
+</p>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
