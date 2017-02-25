@@ -6,5 +6,14 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:name)
-    end
+  end
+
+  def after_sign_in_path_for(owners)
+    restaurants_path
+  end
+
+  def after_sign_out_path_for(owners)
+    new_owner_session_path
+  end
+
 end
