@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227223926) do
+ActiveRecord::Schema.define(version: 20170227232314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170227223926) do
     t.string   "image"
     t.integer  "owner_id"
     t.float    "latitude"
+    t.float    "longitude"
     t.index ["owner_id"], name: "index_restaurants_on_owner_id", using: :btree
   end
 
