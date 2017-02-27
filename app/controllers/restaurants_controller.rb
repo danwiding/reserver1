@@ -8,22 +8,15 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    # @user = User.find(params[:user_id])
-    # @owner = @currnet_owner
-
-    # CORRENT SYNTAX
-    # @owner = current_owner
-    # @restaurants = @owner.restaurants
-
-
+    # CORRECT SYNTAX
     @owner = current_owner
-    # @restaurants = @owner.restaurants
+    @restaurants = @owner.restaurants
 
-    @restaurants = Restaurant.all
-
-    @restaurants.last.owner.id
-    # @current_owner = current_owner.id
-    # @restaurants = Restaurant.where(owner_id: @owner.id)
+    # @owner = current_owner
+    #
+    # @restaurants = Restaurant.all
+    #
+    # @restaurants.last.owner.id
   end
 
   # GET /restaurants/1
@@ -89,6 +82,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :number_of_seats, :cuisine, :image)
+      params.require(:restaurant).permit(:name, :address, :number_of_seats, :cuisine, :image, :latitude)
     end
 end
