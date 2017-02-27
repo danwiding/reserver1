@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:name)
+    devise_parameter_sanitizer.permit(:owner) << :name
   end
 
   def after_sign_in_path_for(owners)

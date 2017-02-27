@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_owner!
-  before_action :current_owner
+
 
   layout "restaurant"
 
@@ -10,8 +10,18 @@ class RestaurantsController < ApplicationController
   def index
     # @user = User.find(params[:user_id])
     # @owner = @currnet_owner
+
+    # CORRENT SYNTAX
+    # @owner = current_owner
+    # @restaurants = @owner.restaurants
+
+
+    @owner = current_owner
+    # @restaurants = @owner.restaurants
+
     @restaurants = Restaurant.all
 
+    @restaurants.last.owner.id
     # @current_owner = current_owner.id
     # @restaurants = Restaurant.where(owner_id: @owner.id)
   end
@@ -34,6 +44,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.owner = current_owner
 
     respond_to do |format|
       if @restaurant.save
