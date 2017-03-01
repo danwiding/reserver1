@@ -48,5 +48,17 @@
 
     <br>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<% if user_signed_in? %>
+  <p>
+    <strong>
+      <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant) %>
+    </strong>
+  </p>
+<% end %>
+
+<% if owner_signed_in? %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+<% elsif user_signed_in? %>
+  <%= link_to 'Back', list_restaurants_path %>
+<% end %>

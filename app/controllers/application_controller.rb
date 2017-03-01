@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :current_owner
-  before_action :current_user
+  # before_action :current_owner
+  # before_action :current_user
 
   # protected
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if resources == @owner
       restaurants_path
     else
-      reservations_path
+      list_restaurants_path
     end
   end
 
