@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Number of seats</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to restaurant.name, new_reservation_path %></td>
+        <td><%= restaurant.number_of_seats %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
