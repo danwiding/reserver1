@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   layout "restaurant"
 
@@ -27,6 +28,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
+    @reservation.restaurant = Restaurant.find(params[:id])
 
     respond_to do |format|
       if @reservation.save
