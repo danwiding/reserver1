@@ -31,9 +31,9 @@ class ReservationsController < ApplicationController
     @reservation.restaurant = Restaurant.find(params[:restaurant_id])
     @reservation.user = current_user
 
-
     respond_to do |format|
       if @reservation.save
+        UserReservationMailer.reservation_confirmation(@reservation).deliver_later
         format.html { redirect_to @reservation.restaurant, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
