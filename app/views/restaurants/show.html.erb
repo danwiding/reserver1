@@ -2,6 +2,14 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if owner_signed_in? %>
+  <h3>
+    <strong>
+      <%= link_to 'View Reservations', restaurant_reservation_path(@restaurant) %>
+    </strong>
+  </h3>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>

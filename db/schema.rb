@@ -76,4 +76,5 @@ ActiveRecord::Schema.define(version: 20170301040839) do
 
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
+  add_foreign_key "restaurants", "owners"
 end

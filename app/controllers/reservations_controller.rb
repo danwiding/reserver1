@@ -1,18 +1,22 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
 
   layout "restaurant"
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @restaurants = Restaurant.all
+    @reservations = Reservation.all
   end
 
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+    @reservations = Reservation.all
+
+    # RESERVATIONS WITH SAME RESTAURANT ID
+    # @reservations = Reservation.find(params[:restaurant_id])
   end
 
   # GET /reservations/new
