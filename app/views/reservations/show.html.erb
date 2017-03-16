@@ -1,25 +1,15 @@
-<h1>Reservations</h1>
-<p id="notice"><%= notice %></p>
+<h1>
+  Reservation Detail
+</h1>
 
+<p>
+  <strong>Name:</strong>
+  <%= @reservation.name %>
+</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Number of People</th>
-    </tr>
-  </thead>
+<p>
+  <strong>Number of people:</strong>
+  <%= @reservation.number_of_people %>
+</p>
 
-  <tbody>
-    <% @reservations.each do |reservation| %>
-      <tr>
-        <td><%= reservation.name %></td>
-        <td><%= reservation.number_of_people %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Back', restaurant_path(@reservation.restaurant) %>
+<%= link_to 'Destroy', restaurant_reservations_path(reservation.restaurant_id), method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -13,10 +13,6 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    @reservations = Reservation.all
-
-    # RESERVATIONS WITH SAME RESTAURANT ID
-    # @reservations = Reservation.find(params[:restaurant_id])
   end
 
   # GET /reservations/new

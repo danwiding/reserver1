@@ -1,11 +1,11 @@
 <h1>Reservations</h1>
-<p id="notice"><%= notice %></p>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Number of People</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -14,6 +14,7 @@
       <tr>
         <td><%= reservation.name %></td>
         <td><%= reservation.number_of_people %></td>
+        <td><%= link_to 'Show', restaurant_reservation_path %></td>
       </tr>
     <% end %>
   </tbody>
@@ -21,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Back', restaurant_path(@reservation.restaurant) %>
+<%= link_to 'Back to Restaurants', restaurants_path %>

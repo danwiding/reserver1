@@ -1,11 +1,17 @@
 <h1>Restaurant Detail</h1>
 
-<p id="notice"><%= notice %></p>
-
 <% if owner_signed_in? %>
   <h3>
     <strong>
-      <%= link_to 'View Reservations', restaurant_reservation_path(@restaurant) %>
+      <%= link_to 'View Reservations', restaurant_reservations_path(@restaurant) %>
+    </strong>
+  </h3>
+<% end %>
+
+<% if user_signed_in? %>
+  <h3>
+    <strong>
+      <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant) %>
     </strong>
   </h3>
 <% end %>
@@ -32,6 +38,7 @@
 
 <p>
   <strong>Photo of the restaurant:</strong>
+  <br>
   <%= image_tag(@restaurant.image_url.to_s) %>
 </p>
 
@@ -55,15 +62,6 @@
     </script>
 
     <br>
-
-<% if user_signed_in? %>
-  <p>
-    <strong>
-      <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant) %>
-    </strong>
-  </p>
-<% end %>
-
 <% if owner_signed_in? %>
   <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
   <%= link_to 'Back', restaurants_path %>
