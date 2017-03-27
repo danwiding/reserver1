@@ -14,6 +14,21 @@
  *= require_self
  */
 
+ #map {
+   width: 30%;
+   height: 200px;
+   background-color: grey;
+ }
+
 .page-title {
   color: red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato';
 }
